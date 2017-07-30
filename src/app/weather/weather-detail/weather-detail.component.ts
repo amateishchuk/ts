@@ -12,6 +12,7 @@ import { WeatherService } from "../shared/weather.service";
 export class WeatherDetailComponent implements OnInit {
   weather: WeatherOwm
   city: string;
+  qtyDays: number = 7;
 
   constructor(private weatherService: WeatherService,
               private route: ActivatedRoute,
@@ -23,14 +24,19 @@ export class WeatherDetailComponent implements OnInit {
       .subscribe(
         (params: Params) => {
           this.city = params['city'];
-
-          this.weatherService.getWeather(this.city, 10)
-            .subscribe((response) => {
-              this.weather = response.json();
-            }
-          );
+          if (params['qtyDays']){
+            this.qtyDays = +params['qtyDays'];
+          }
+          this.getWeather();
         }
       );
   }
 
+  private getWeather(){
+    this.weatherService.getWeather(this.city, this.qtyDays)
+      .subscribe((response) => {
+        this.weather = response.json();
+      }
+    );
+  }
 }
