@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { City } from "../../../shared/city.model";
 
 @Component({
   selector: 'app-weather-city-item',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./weather-city-item.component.css']
 })
 export class WeatherCityItemComponent implements OnInit {
+  @Input('cityEl') city: City;
 
   constructor() { }
 
