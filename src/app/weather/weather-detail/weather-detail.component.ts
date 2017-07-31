@@ -39,4 +39,9 @@ export class WeatherDetailComponent implements OnInit {
       }
     );
   }
+  addDays(days: number){
+    var dat = new Date();
+    dat.setDate(dat.getDate() + days);
+    return dat.toDateString();
+  }
 }

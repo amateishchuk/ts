@@ -21,7 +21,7 @@ export class CityService {
         return this.http.get(`${this.url}/${this.subUrl}`);
     }
 
-    getIngredient(index: number) {
+    getCity(index: number) {
         return this.http.get(`${this.url}/${this.subUrl}/${index}`);
     }
 

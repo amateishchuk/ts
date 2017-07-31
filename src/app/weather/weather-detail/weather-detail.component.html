@@ -1,4 +1,33 @@
-<p>
-  weather-detail works!
-</p>
-{{weather.city.name}} {{weather.cnt}}
+<p class="w3-xlarge">{{weather.city.name}}</p>
+
+<table class="w3-table w3-bordered">
+  <tbody>
+    <tr>                
+        <td><p><img src="http://localhost:8684/Content/calendar.png" title="Calendar"></p></td>
+        <td><p><img src="http://localhost:8684/Content/temperature.png" title="Temperature"></p></td>
+        <td><p><img src="http://localhost:8684/Content/humidity.png" title="Humidity"></p></td>
+        <td><p><img src="http://localhost:8684/Content/pressure.ico" title="Pressure"></p></td>
+        <td><p><img src="http://localhost:8684/Content/wind.png" title="Wind"></p></td>
+        <td><p><img src="http://localhost:8684/Content/cloud.png" title="Cloud"></p></td>
+    </tr>
+      <tr *ngFor="let dayData of weather.list; let i = index">
+          <td>
+              {{addDays(i)}}
+          </td>
+          <td>
+              <ul>
+                  <li><small>Morning:</small> {{dayData.temp.morn}}°C</li>
+                  <li><small>Day:</small> {{dayData.temp.day}}°C</li>
+                  <li><small>Evening:</small> {{dayData.temp.eve}}°C</li>
+                  <li><small>Night:</small> {{dayData.temp.night}}°C</li>
+                  <li><small>Min:</small> {{dayData.temp.min}}°C</li>
+                  <li><small>Max:</small> {{dayData.temp.max}}°C</li>
+              </ul>
+          </td>
+          <td>{{dayData.humidity}} %</td>
+          <td>{{dayData.pressure}} Pa</td>
+          <td>{{dayData.speed}} m/s {{dayData.deg}}°</td>
+          <td>{{dayData.clouds}} %</td>
+      </tr>                
+    </tbody>
+  </table>

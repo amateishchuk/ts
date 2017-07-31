@@ -1,7 +1,26 @@
-<p>
-  header works!
-</p>
-<a routerLink="">WeatherOwm</a>
-<a routerLink="weather">Weather</a>
-<a routerLink="cities">Favorite cities</a>
-<a routerLink="history">History</a>
+<div class="w3-bar w3-gray">
+  <div class="w3-bar-item w3-large w3-hover-yellow"
+    routerLink="">
+    <a>
+      <img title="Sun" style="height:25px"
+      src="http://copyrightsmarter-001-site1.itempurl.com/Content/Sunny.png">
+      WeatherOwm
+    </a>
+  </div>
+  <div 
+    class="w3-bar-item w3-large w3-hover-yellow" 
+    routerLinkActive="w3-dark-grey w3-text-white"
+    routerLink="weather">
+    <a>Weather</a>
+  </div>
+  <div class="w3-bar-item w3-large w3-hover-yellow" 
+    routerLinkActive="w3-dark-grey w3-text-white"
+     routerLink="cities">
+    <a>Favorite cities</a>
+  </div>
+  <div class="w3-bar-item w3-large w3-right w3-hover-yellow" 
+    routerLinkActive="w3-dark-grey w3-text-white"
+    routerLink="history">
+    <a>History</a>
+  </div>
+</div>

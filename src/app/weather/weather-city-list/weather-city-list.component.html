@@ -1,11 +1,12 @@
 <p>
-  weather-city-list works!
+  <input type="text" #city
+    class="w3-input w3-round-large"
+    placeholder="Input city name">
+  <button (click)="onShowWeather(city.value)"
+    class="w3-btn w3-block w3-yellow w3-round-large">Show Weather</button>
 </p>
-<p>
-  <input type="text" #city>
-  <button (click)="onShowWeather(city.value)">Show Weather</button>
-</p>
-<app-weather-city-item
-  *ngFor="let city of cities" [cityEl]="city">
-
-</app-weather-city-item>
+<ul class="w3-ul">
+  <app-weather-city-item
+    *ngFor="let city of cities" [cityEl]="city">
+  </app-weather-city-item>
+</ul>

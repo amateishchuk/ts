@@ -1,0 +1,12 @@
+img{
+    height: 30px;
+    width: 30px;
+}
+td{
+    text-align: center;
+    vertical-align: middle;
+}
+td ul{
+    list-style-type: none;
+    text-align: left;
+}

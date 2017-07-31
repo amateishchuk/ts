@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { WeatherComponent } from './weather/weather.component';
 import { CityListComponent } from './city-list/city-list.component';
-import { CityEditComponent } from './city-list/city-edit/city-edit.component';
 import { WeatherStartComponent } from './weather/weather-start/weather-start.component';
 import { WeatherDetailComponent } from './weather/weather-detail/weather-detail.component';
 import { WeatherCityListComponent } from './weather/weather-city-list/weather-city-list.component';
@@ -15,6 +15,7 @@ import { HistoryComponent } from './history/history.component';
 import { AppRoutingModule } from "./app-routing.module";
 import { CityService } from "./shared/city.service";
 import { WeatherService } from "./weather/shared/weather.service";
+import { HistoryService } from "./history/shared/history.service";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,6 @@ import { WeatherService } from "./weather/shared/weather.service";
     HeaderComponent,
     WeatherComponent,
     CityListComponent,
-    CityEditComponent,
     WeatherStartComponent,
     WeatherDetailComponent,
     WeatherCityListComponent,
@@ -32,11 +32,14 @@ import { WeatherService } from "./weather/shared/weather.service";
   imports: [
     BrowserModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CityService,
-    WeatherService
+    WeatherService,
+    HistoryService
   ],
   bootstrap: [AppComponent]
 })

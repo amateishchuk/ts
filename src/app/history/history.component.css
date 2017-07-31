@@ -1,0 +1,12 @@
+img{
+    height: 30px;
+    width: 30px;
+}
+td{
+    vertical-align: middle;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+    text-align: left;
+}

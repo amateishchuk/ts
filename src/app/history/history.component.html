@@ -1,3 +1,33 @@
-<p>
-  history works!
-</p>
+<table class="w3-table w3-bordered w3-centered">
+  <tbody>
+    <tr>
+        <td><p><img src="http://localhost:8684/Content/calendar.png" title="Calendar"></p></td>
+        <td><p><img src="http://localhost:8684/Content/city.png"></p></td>
+        <td><p><img src="http://localhost:8684/Content/temperature.png" title="Temperature"></p></td>
+        <td><p><img src="http://localhost:8684/Content/humidity.png" title="Humidity"></p></td>
+        <td><p><img src="http://localhost:8684/Content/pressure.ico" title="Pressure"></p></td>
+        <td><p><img src="http://localhost:8684/Content/wind.png" title="Wind"></p></td>
+        <td><p><img src="http://localhost:8684/Content/cloud.png" title="Cloud"></p></td>
+    </tr>
+    <tr *ngFor="let record of histories">
+        <td>
+            {{ record.dateTime | date:'medium' }}                        
+        </td>
+        <td>Kiev</td>
+        <td>
+            <ul>
+                <li><small>Morning:</small> {{record.list.temp.morn}}°C</li>
+                <li><small>Day:</small> {{record.list.temp.day}}°C</li>
+                <li><small>Evening:</small> {{record.list.temp.eve}}°C</li>
+                <li><small>Night:</small> {{record.list.temp.night}}°C</li>
+                <li><small>Min:</small> {{record.list.temp.min}}°C</li>
+                <li><small>Max:</small> {{record.list.temp.max}}°C</li>
+            </ul>
+        </td>
+        <td>{{record.list.humidity}} %</td>
+        <td>{{record.list.pressure}} Pa</td>
+        <td>{{record.list.speed}} m/s {{record.list.deg}}°</td>
+        <td>{{record.list.clouds}} %</td>
+    </tr>            
+  </tbody>
+</table>

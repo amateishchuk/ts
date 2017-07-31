@@ -29,8 +29,6 @@ export class WeatherCityListComponent implements OnInit, OnDestroy {
       );
     this.cityService.getCities().subscribe((response) => {
       this.cities = response.json();
-      console.log(this.cities);
-      console.log(response);
     });
     
   }
