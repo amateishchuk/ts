@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, NgZone } from '@angular/core';
 import { NgForm } from "@angular/forms";
 
 import { City } from "../shared/city.model";
@@ -15,7 +15,8 @@ export class CityListComponent implements OnInit {
   editMode = false;
   editedItemIndex: number;
 
-  constructor(private cityService: CityService) { }
+  constructor(private cityService: CityService,
+    private zone: NgZone) { }
 
   ngOnInit() {
       this.getCities();     
@@ -31,7 +32,7 @@ export class CityListComponent implements OnInit {
     }
     this.editMode = false;
     form.reset();
-    this.getCities();
+    this.reload();
   }
 
   onEditCity(city:City){
@@ -50,7 +51,13 @@ export class CityListComponent implements OnInit {
   onDelete() {
     this.deleteCity(this.editedItemIndex);
     this.onClear();
-    this.getCities();
+    this.reload();
+  }
+
+  private reload(){
+    this.zone.runOutsideAngular(() => {
+        location.reload();
+    });
   }
 
   private addCity(city: string){

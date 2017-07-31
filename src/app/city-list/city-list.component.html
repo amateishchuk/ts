@@ -1,32 +1,38 @@
-<p>
-  city-list works!
-</p>
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-  <label for="name">Name</label>        
-  <input
-    type="text"
-    id="name"
-    class="form-control"
-    name="name"
-    ngModel
-    required
-    pattern="^[a-zA-Z]*$"
-  >
-  <button
-    class="btn btn-success"
-    type="submit"
-    [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
-  <button
-    class="btn btn-danger"
-    type="button"
-    (click)="onDelete()"
-    *ngIf="editMode">Delete</button>
-  <button class="btn btn-primary" type="button" (click)="onClear()">Clear</button>  
-</form>
-
-<a    
-    style="cursor: pointer"
-    *ngFor="let city of cities"
-    (click)="onEditCity(city)">
-    {{ city.name }}
-</a>
+<div class="w3-content" style="max-width:300px; padding-top: 5%">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">      
+      <input
+        type="text"
+        id="name"
+        class="w3-input w3-round-large"
+        name="name"
+        ngModel
+        required
+        pattern="^[a-zA-Z]*$"            
+        placeholder="Input city name"
+      >
+      <br>
+      <button
+        class="w3-btn w3-green w3-round"
+        type="submit"
+        [disabled]="!f.valid">{{ editMode ? 'Update' : 'Add' }}</button>
+      <button
+        class="w3-btn w3-red w3-round"
+        type="button"
+        (click)="onDelete()"
+        *ngIf="editMode">Delete</button>
+      <button 
+        class="w3-btn w3-blue w3-round" 
+        type="button" 
+        (click)="onClear()">Clear</button>  
+    </form>  
+    <br>
+  <ul class="w3-ul">
+    <li
+      class="w3-hover-yellow"
+      style="cursor: pointer"
+      *ngFor="let city of cities"
+      (click)="onEditCity(city)">
+      {{ city.name }}
+    </li>
+  </ul>  
+</div>
